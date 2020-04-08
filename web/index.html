@@ -20,7 +20,7 @@
 			<!-- Paragraphs go here -->
 			{{range .Paragraphs}}
 			<p class="col-12">
-
+				{{.}}
 			</p>
 			{{end}}
 		</div>
@@ -29,7 +29,7 @@
 			{{range .Options}}
 			<div class="col">
 				<button class="btn btn-outline-danger btn-lg btn-block"
-					onclick="window.location.href = '/{{.Chapter}}';">{{.Text}}</button>
+					onclick="window.location.href = '/{{.Arc}}';">{{.Text}}</button>
 			</div>
 			{{end}}
 		</div>
