@@ -14,7 +14,7 @@ func init() {
 	tpl = template.Must(template.New("").Parse(""))
 }
 
-// NewHandler : Casts story into an HTTP handler
+// NewHandler : Turns a story into an HTTP handler
 func NewHandler(s Story) http.Handler {
 	return handler{s}
 }
@@ -24,20 +24,15 @@ type handler struct {
 }
 
 // TODO export into its own file
-// ServeHTTP : 
-func (h handler) ServeHTTP(writer http.ResponseWriter, req *http.Request) {
-	http.HandleFunc("/", index)
-	http.Handle("/web/", http.StripPrefix("/web", http.FileServer(http.Dir("web"))))
-	http.ListenAndServe(":8080", nil)
-}
-
-
-
-func index(res http.ResponseWriter, req *http.Request) {
+// ServeHTTP : Method for handlers, takes in a writer and a request and serves a web page
+func (h handler) ServeHTTP(res http.ResponseWriter, req *http.Request) {
 	err := tpl.ExecuteTemplate(res, "index.html", nil)
 	if err != nil {
 		log.Fatalln("template didn't execute: ", err)
 	}
+	http.HandleFunc("/", index)
+	http.Handle("/web/", http.StripPrefix("/web", http.FileServer(http.Dir("web"))))
+	http.ListenAndServe(":8080", nil)
 }
 
 // JSONStory : Takes a reader, decodes from JSON into Story
