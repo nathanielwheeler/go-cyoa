@@ -1,0 +1,82 @@
+{
+	"intro": {
+		"title": "A Dark Room",
+		"story": [
+			"You open your eyes.  The room is dark.  You can see the faint outline of a door."
+		],
+		"options": [
+			{
+				"text": "Fumble along the walls for a light switch.",
+				"arc": "lighted-room"
+			},
+			{
+				"text": "I'm outta here.",
+				"arc": "outside"
+			}
+		]
+	},
+	"lighted-room": {
+		"title": "A Lighted Room",
+		"story": [
+			"After fumbling around the walls, you locate what feels like a light switch and flick it.",
+			"Unfortunately, you just flicked the nose of a Zarganian Ipswitch.  It is not pleased that you have flicked its nose."
+		],
+		"options": [
+			{
+				"text": "Give a heart-felt apology.",
+				"arc": "a-new-friend"
+			},
+			{
+				"text": "Flick its nose again.",
+				"arc": "lose"
+			}
+		]
+	},
+	"a-new-friend": {
+		"title": "A New Friend",
+		"story": [
+			"The Zarganian Ipswitch accepts your apology graciously.  Soon enough, you two have become fast friends."
+		],
+		"options": [
+			{
+				"text": "The real victory is friendship.",
+				"arc": "win"
+			}
+		]
+	},
+	"outside": {
+		"title": "Outside",
+		"story": [
+			"As you step through the door, you realize that there isn't actually a floor outside."
+		],
+		"options": [
+			{
+				"text": "aaaaaaaaaaaa",
+				"arc": "lose"
+			},
+			{
+				"text": "AAAAAAAAAAAA",
+				"arc": "lose"
+			}
+		]
+	},
+	"lose": {
+		"title": "Ouch.",
+		"story": [
+			"It seems that you have perished in a most agonizing manner."
+		],
+		"options": [
+			{
+				"text": "Try again?",
+				"arc": "intro"
+			}
+		]
+	},
+	"win": {
+		"title": "Victory!",
+		"story": [
+			"You win!"
+		],
+		"options": []
+	}
+}
