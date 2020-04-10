@@ -20,7 +20,9 @@
 		"title": "A Lighted Room",
 		"story": [
 			"After fumbling around the walls, you locate what feels like a light switch and flick it.",
-			"Unfortunately, you just flicked the nose of a Zarganian Ipswitch.  It is not pleased that you have flicked its nose."
+			"Unfortunately, you just flicked the nose of a Zarganian Ipswitch.  They look most aggrieved.",
+			"And tall.",
+			"And full of teeth."
 		],
 		"options": [
 			{
@@ -36,7 +38,11 @@
 	"a-new-friend": {
 		"title": "A New Friend",
 		"story": [
-			"The Zarganian Ipswitch accepts your apology graciously.  Soon enough, you two have become fast friends."
+			"The Zarganian Ipswitch accepts your apology graciously.",
+			"The two of you strike up a conversation.  After several minutes, you exchange phone numbers, and the Ipswitch guides you through a secret door.",
+			"You start going out for drinks a couple times a week.",
+			"Many decades later, you lie on your deathbed and the Ipswitch is there.  Tears are in their eyes.  You tell them how much their friendship means to you.  The Ipswitch nods, trying to remain stoic.",
+			"As you lose consciousness, you think: <em>This isn't so bad.</em>"
 		],
 		"options": [
 			{
@@ -46,7 +52,7 @@
 		]
 	},
 	"outside": {
-		"title": "Outside",
+		"title": "Uh-Oh",
 		"story": [
 			"As you step through the door, you realize that there isn't actually a floor outside."
 		],
