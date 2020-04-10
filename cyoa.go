@@ -49,7 +49,7 @@ func (h handler) ServeHTTP(res http.ResponseWriter, req *http.Request) {
 	if path == "" || path == "/" {
 		path = "/intro"
 	}
-	path = path[1:]
+	path = path[1:] // Strips the '/' prefix
 
 	if chapter, ok := h.s[path]; ok {
 		err := tpl.ExecuteTemplate(res, "chapter.html", chapter)

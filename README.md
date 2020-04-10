@@ -12,7 +12,7 @@ go run cmd/cyoaweb/main.go
 The server will start and run on `localhost:3000`.
 
 ### To Do
-- [ ] The website will be styled with CSS
+- [X] The website will be styled ~~with CSS~~
 - [ ] The index of the website will explain the project and allow the users the choice of starting an adventure
 - [ ] The users can access the project at an HTTPS domain
 
