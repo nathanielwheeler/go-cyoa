@@ -2,7 +2,6 @@ package cyoa
 
 import (
 	"encoding/json"
-	"fmt"
 	"html/template"
 	"io"
 	"log"
@@ -26,40 +25,51 @@ type Option struct {
 	Arc  string `json:"arc"`
 }
 
-var tpl *template.Template
+var storyTpl, indexTpl *template.Template
 
 type handler struct {
 	s Story
+	t *template.Template
 }
 
 func init() {
-	tpl = template.Must(template.ParseFiles("web/chapter.html"))
+	indexTpl = template.Must(template.ParseFiles("web/index.html"))
+	storyTpl = template.Must(template.ParseFiles("web/chapter.html"))
 }
 
 // NewHandler : Turns a story into an HTTP handler
-func NewHandler(s Story) http.Handler {
-	fmt.Println("Handling story")
-	return handler{s}
+func NewHandler(s Story, t *template.Template) http.Handler {
+	if t == nil {
+		t = storyTpl
+	}
+	return handler{s, t}
 }
 
 // ServeHTTP : Method for handlers, takes in a writer and a request and serves a web page
 func (h handler) ServeHTTP(res http.ResponseWriter, req *http.Request) {
 	// Get chapter from URL
 	path := strings.TrimSpace(req.URL.Path)
-	if path == "" || path == "/" {
-		path = "/intro"
-	}
-	path = path[1:] // Strips the '/' prefix
+	if path != "" || path != "/" {
+		path = path[1:] // Strips the '/' prefix
 
-	if chapter, ok := h.s[path]; ok {
-		err := tpl.ExecuteTemplate(res, "chapter.html", chapter)
-		if err != nil {
-			log.Printf("%v", err)
-			http.Error(res, "Something went wrong :C\n", http.StatusInternalServerError)
+		if chapter, ok := h.s[path]; ok {
+			err := storyTpl.ExecuteTemplate(res, "chapter.html", chapter)
+			if err != nil {
+				log.Printf("%v", err)
+				http.Error(res, "Something went wrong :C\n", http.StatusInternalServerError)
+			}
+			return
 		}
-		return
+		http.Error(res, "Chapter not found :C\n", http.StatusNotFound)
+
 	}
-	http.Error(res, "Chapter not found :C\n", http.StatusNotFound)
+	path = "/"
+
+	err := indexTpl.ExecuteTemplate(res, "index.html", nil)
+	if err != nil {
+		log.Printf("%v", err)
+		http.Error(res, "Something went wrong :C\n", http.StatusInternalServerError)
+	}
 }
 
 // JSONStory : Takes a reader, decodes from JSON into Story

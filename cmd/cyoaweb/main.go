@@ -26,7 +26,7 @@ func main() {
 		log.Fatalln("Error decoding story file.")
 	}
 
-	h := cyoa.NewHandler(story)
+	h := cyoa.NewHandler(story, nil)
 	fmt.Printf("Serving on port %d\n", *port)
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", *port), h))
 }

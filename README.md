@@ -13,7 +13,7 @@ The server will start and run on `localhost:3000`.
 
 ### To Do
 - [X] The website will be styled ~~with CSS~~
-- [ ] The index of the website will explain the project and allow the users the choice of starting an adventure
+- [X] The index of the website will explain the project and allow the users the choice of starting an adventure
 - [ ] The users can access the project at an HTTPS domain
 
 ### Stretch Goals

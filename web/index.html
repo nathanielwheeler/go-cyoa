@@ -11,26 +11,14 @@
 
 <body class="bg-dark text-light">
 	<header>
-		<!-- Chapter title goes here -->
-		<h1 class="text-center">{{.Title}}</h1>
+		<h1 class="text-center">Choose Your Own Adventure</h1>
 	</header>
 	<main class="container">
 		<div class="row">
-			<!-- Paragraphs go here -->
-			{{range .Paragraphs}}
-			<p class="col-12 lead">
-				{{.}}
-			</p>
-			{{end}}
-		</div>
-		<div class="row">
-			<!-- Options go here -->
-			{{range .Options}}
 			<div class="col">
-				<button class="btn btn-danger btn-lg btn-block"
-					onclick="window.location.href = '/{{.Arc}}';">{{.Text}}</button>
+				<button class="btn btn-info btn-lg btn-block"
+					onclick="window.location.href = '/intro';">Begin!</button>
 			</div>
-			{{end}}
 		</div>
 	</main>
 
