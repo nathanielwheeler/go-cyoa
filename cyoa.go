@@ -7,6 +7,7 @@ import (
 	"io"
 	"log"
 	"net/http"
+	"strings"
 )
 
 // Story : Holds a bunch of chapters
@@ -32,7 +33,7 @@ type handler struct {
 }
 
 func init() {
-	tpl = template.Must(template.ParseFiles("web/index.html"))
+	tpl = template.Must(template.ParseFiles("web/chapter.html"))
 }
 
 // NewHandler : Turns a story into an HTTP handler
@@ -43,11 +44,22 @@ func NewHandler(s Story) http.Handler {
 
 // ServeHTTP : Method for handlers, takes in a writer and a request and serves a web page
 func (h handler) ServeHTTP(res http.ResponseWriter, req *http.Request) {
-	fmt.Println("Executing story...")
-	err := tpl.ExecuteTemplate(res, "index.html", h.s["intro"])
-	if err != nil {
-		log.Fatalln("template didn't execute: ", err)
+	// Get chapter from URL
+	path := strings.TrimSpace(req.URL.Path)
+	if path == "" || path == "/" {
+		path = "/intro"
 	}
+	path = path[1:]
+
+	if chapter, ok := h.s[path]; ok {
+		err := tpl.ExecuteTemplate(res, "chapter.html", chapter)
+		if err != nil {
+			log.Printf("%v", err)
+			http.Error(res, "Something went wrong :C\n", http.StatusInternalServerError)
+		}
+		return
+	}
+	http.Error(res, "Chapter not found :C\n", http.StatusNotFound)
 }
 
 // JSONStory : Takes a reader, decodes from JSON into Story

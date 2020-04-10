@@ -2,16 +2,17 @@
 	"intro": {
 		"title": "A Dark Room",
 		"story": [
-			"You open your eyes.  The room is dark.  You can see the faint outline of a door."
+			"You open your eyes.  The room is dark.",
+			"As you strain your eyes to see, you think you can see the faint outline of a door."
 		],
 		"options": [
 			{
-				"text": "Fumble along the walls for a light switch.",
-				"arc": "lighted-room"
+				"text": "Go through the door.",
+				"arc": "outside"
 			},
 			{
-				"text": "I'm outta here.",
-				"arc": "outside"
+				"text": "Fumble along the walls for a light switch.",
+				"arc": "lighted-room"
 			}
 		]
 	},
@@ -77,6 +78,11 @@
 		"story": [
 			"You win!"
 		],
-		"options": []
+		"options": [
+			{
+				"text": "Play again?",
+				"arc": "intro"
+			}
+		]
 	}
 }
