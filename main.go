@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"nathanielwheeler.com/server"
+	"github.com/nathanielwheeler/go-cyoa/server"
 )
 
 func main() {
