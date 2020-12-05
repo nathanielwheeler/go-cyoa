@@ -14,7 +14,7 @@ func Run() (err error) {
 	s := newServer()
 
 	// Start that server!
-	port := fmt.Sprintf(":%d", s.config.Port)
+	port := ":3030"
 	fmt.Printf("Now listening on %s...\n", port)
 	http.ListenAndServe(port, s.router)
 
@@ -22,7 +22,6 @@ func Run() (err error) {
 }
 
 type server struct {
-	config *config
 	logger *log.Logger
 	router *mux.Router
 }
