@@ -1,0 +1,61 @@
+main 
+	margin-top: 30px
+
+a
+	font-weight: bold
+
+a:hover
+	text-decoration: underline
+
+.hero-background 
+	position: relative
+	background-image: url("/images/static/hero-background.png")
+	background-repeat: no-repeat
+	background-size: cover
+	background-position: center
+
+.hero-overlay 
+	background: rgba(0,0,0,.4)
+	position: absolute
+	height: 100%
+	top: 0
+	filter: blur(4px)
+	width: 100%
+
+.hero-shadow 
+		text-shadow: 0 0 1px black, 0 0 2px black, 0 0 4px black, 0 0 6px black, 0 0 8px black, 0 0 12px black, 0 0 16px black
+
+.my-spacer 
+	height: 20vh
+
+.nav-spacer 
+	height: 56px
+
+.navform 
+	cursor: pointer
+
+.flex-align-center 
+	display: flex
+	align-items: center
+
+
+// Style for prototype/theme-system
+.theme-system-pagination
+	.page-item
+		margin: -1px
+		.page-link
+			border-color: $primary
+			background: $dark
+.theme-system-page
+	height: 75vh
+.theme-system-header
+	height: 25vh
+	background-image: url("/images/static/hero-background.png")
+	background-repeat: no-repeat
+	background-size: cover
+	background-position: center
+@media (max-width: 480px)
+	.theme-system-header
+		height: 15vh
+		h1
+			font-size: 1.5em

@@ -1,0 +1,63 @@
+// Options
+$enable-rounded: false
+
+// Gruvbox colors
+$blue: #076678
+$light-blue: #458588
+$purple: #8f3f71
+$light-purple: #b16286
+$red: #9d0006
+$light-red: #cc241d
+$orange: #af3a03
+$light-orange: #d65d0e
+$yellow: #b57614
+$light-yellow: #d79921
+$green: #79740e
+$light-green: #98971a
+$cyan: #427b58
+$light-cyan: #689d6a
+
+$white: #fbf1c7
+$gray-10: #ebddb2
+$gray-20: #d5c4a1
+$gray-30: #bdae93
+$gray-40: #a89984
+$gray-50: #928374
+$gray-60: #7c6f64
+$gray-70: #665c54
+$gray-80: #504945
+$gray-90: #3c3836
+$black: #282828
+
+// My Colors
+$dark: #2e2a24
+$darker: darken($dark, 5%)
+$light: #f9d094
+
+// Theme
+$primary: $yellow
+$warning: $orange
+
+$theme-colors: ("darker": $darker)
+
+// Body
+$body-bg: $darker
+$body-color: $light
+
+// Links
+$link-color: $yellow
+
+// In sass, variable overrides need to come *before* imports.
+@import "bs-loader"
+// Everything else, like mixins and map additions, need to be used *after*
+
+.dropdown-menu
+	color: $light
+	background: $darker
+
+	.dropdown-item
+		color: $light
+	.dropdown-item:hover
+		color: $white
+		background: $dark
+
